@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node server/src/index.js",
+    "data": "node data/script.js",
     "db-up": "docker-compose up -d",
     "db-status": "docker-compose ps",
     "db-down": "docker-compose down",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon server/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -20,5 +21,9 @@
     "graphql": "^15.6.1",
     "graphql-tools": "^8.2.0",
     "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "@prisma/client": "^3.3.0",
+    "line-reader": "^0.4.0"
   }
 }
