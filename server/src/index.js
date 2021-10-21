@@ -1,10 +1,28 @@
-const { readFile } = require("../../data/devFlow")
+const { ApolloServer, gql } = require('apollo-server');
 
-console.log('q ', readFile('/home/rocio/LIM014/REG003-fleet-management/server/src/dummy.txt'))
-const otrafuncion = async () => {
-    console.log(await readFile('/home/rocio/LIM014/REG003-fleet-management/server/src/dummy.txt'))
+
+const typeDefs = gql`
+
+type Query {
+    hello: String
 }
 
-// console.log('aaaaaaa', otrafuncion())
+`;
 
-otrafuncion()
+const resolvers = {
+    Query: {
+        hello: () => {
+            return 'Hello World con Graphql'
+        },
+    }
+    }
+
+
+
+const server = new ApolloServer({typeDefs, resolvers})
+
+
+
+server.listen().then(({ url }) => {
+    console.log(`🚀  Server ready at ${url}`);
+})

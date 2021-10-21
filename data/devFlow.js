@@ -33,14 +33,14 @@ const readDir = (route) => {
   };
 
 
-const readFile = async (route) => {
+const readFile = (route) => {
 let data= [];
 const obj = [];
 const lineReader= lr.createInterface({
   input: fs.createReadStream(route)
 });
 
-await lineReader.on('line', function (line) {
+lineReader.on('line', function (line) {
     //console.log('que es esto', line.length)
     if (line.length <= 16) {
     let [ id, placa] = line.split(',');
@@ -52,9 +52,9 @@ await lineReader.on('line', function (line) {
 
 });
 
-await lineReader.on('close', ()=>{
+lineReader.on('close', ()=>{
      data = JSON.stringify(obj);
-     // console.log('data', data)
+     console.log('data', data)
      
 });
  
