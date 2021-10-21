@@ -55,10 +55,11 @@ await lineReader.on('line', function (line) {
 await lineReader.on('close', ()=>{
      data = JSON.stringify(obj);
      // console.log('data', data)
-     
+
 });
- 
+
 return data;
 }
 
 module.exports = {readFile}
+
