@@ -7,9 +7,10 @@ const prisma = new Prisma.PrismaClient();
 async function main() {
     /* carga de taxis*/
     let root = 'C:\\Users\\HP\\Downloads\\taxis'
-    let files = fs.readdirSync(root)//.splice(0,1)
+    let files = fs.readdirSync(root).splice(0,1)
     for (let file of files) {
         const lines = fs.readFileSync(root+'\\'+file, 'utf-8').split('\n')
+        console.log(lines)
         let taxis = []
         for (let line of lines/*.splice(0,2)*/) {
             // do whatever you want with line...
