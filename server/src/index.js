@@ -4,9 +4,16 @@ const { ApolloServer, gql } = require('apollo-server');
 const typeDefs = gql`
 
 type Query {
-    hello: String
+    upcomingEvents: [Event!]!
 }
-
+type Event {
+name: String!
+date: String!
+location: Location
+}
+type Location {
+name: String!
+}
 `;
 
 const resolvers = {
