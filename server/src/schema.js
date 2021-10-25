@@ -3,16 +3,23 @@ const { makeExecutableSchema, gql } = require('apollo-server')
 
 const typeDefs = gql`
 
-type Query {
-    hello: String
+type Car {
+    id: String
+    placa: String
 }
+
+type Query {
+    car(placa: String): Car
+}
+
+
 
 `;
 
 const resolvers = {
     Query: {
-        hello: () => {
-            return 'Hello World con Graphql'
+        car: (_, args) => {
+            return 'Hello World con Graphql ${args.placa}'
         },
     }
     }
