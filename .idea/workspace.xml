@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17f07fd1-6f3a-47dc-9a31-763f4d4e9afa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/resolvers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/resolvers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/schema.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +92,7 @@
       <workItem from="1634788812629" duration="3573000" />
       <workItem from="1634824904939" duration="4027000" />
       <workItem from="1635165667344" duration="5348000" />
-      <workItem from="1635181029529" duration="2895000" />
+      <workItem from="1635181029529" duration="4192000" />
     </task>
     <servers />
   </component>

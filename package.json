@@ -10,11 +10,13 @@
     "db-status": "docker-compose ps",
     "db-down": "docker-compose down",
     "dev": "nodemon server/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "prisma generate"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@prisma/client": "^3.3.0",
     "apollo-server": "^3.4.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
@@ -23,7 +25,7 @@
     "nodemon": "^2.0.14"
   },
   "devDependencies": {
-    "@prisma/client": "^3.3.0",
-    "line-reader": "^0.4.0"
+    "line-reader": "^0.4.0",
+    "prisma": "^3.3.0"
   }
 }
