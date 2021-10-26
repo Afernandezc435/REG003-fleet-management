@@ -8,12 +8,14 @@ datasource db {
 }
 
 model taxis {
-  id    String  @id
-  placa String? @db.VarChar
+  id           String         @id @db.VarChar
+  placa        String?        @db.VarChar
+  trajectories trajectories[]
 }
 
 model trajectories {
   id         String   @db.VarChar
+  taxi       taxis    @relation(fields: [id], references: [id])
   created_at DateTime @db.Timestamp(6)
   latitude   Float?
   longitude  Float?

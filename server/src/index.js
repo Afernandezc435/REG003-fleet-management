@@ -8,15 +8,19 @@ scalar ISODate
 type Car {
     id: String
     placa: String
+    trajectories: [Trajectories]
 }
 type Trajectories {
     id: String
     created_at: ISODate
     latitude: Float
     longitude: Float
+    taxi: Car!
+    
 }
 type Query {
     car(placa: String, date: String, dateT: String ): [Trajectories]
+    taxis(placa: String, date: String, dateT: String ): [Car]
     recents(placa: String, date: String, dateT: String ): [Trajectories]
 }
 `;
@@ -45,15 +49,33 @@ const resolvers = {
             return trajectories;
         },
         async recents (parent, args, ctx) {
-
+            if(!args.placa) {
+                return []
+            }
             const trajectories = await prisma.trajectories.findMany({
+                where: {
+                    taxi: {
+                        placa: args.placa
+                    },
+                },
                 orderBy: [{
                     created_at: 'desc'
                 }],
+                include: {
+                    taxi: true,
+                },
                 take: 100,
             })
 
             return trajectories;
+        },
+        async taxis (parent, args, ctx) {
+            const taxis = await prisma.taxis.findMany({
+                orderBy: [{
+                    placa: 'asc'
+                }]
+            })
+            return taxis;
         },
     }
 }
