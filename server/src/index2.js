@@ -47,18 +47,18 @@ const resolvers = {
         async recents (parent, args, ctx) {
 
             const trajectories = await prisma.trajectories.findMany({
+
                 orderBy: [{
                     created_at: 'desc'
-                }],
-                take: 100,
+                }]
             })
 
             return trajectories;
         },
     }
 }
-// "2008-02-03"
-// "2008-02-04"
+    // "2008-02-03"
+    // "2008-02-04"
 
 
 const server = new ApolloServer({typeDefs, resolvers})

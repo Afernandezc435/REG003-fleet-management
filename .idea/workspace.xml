@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17f07fd1-6f3a-47dc-9a31-763f4d4e9afa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/resolvers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/resolvers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/schema.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,20 +38,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.16.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.17.27" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\apps\REG003-fleet-management\server\src" />
       <recent name="C:\Users\HP\Desktop\apps\REG003-fleet-management\data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Desktop\apps\REG003-fleet-management" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.data">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="script.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="data/script.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -70,8 +66,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.script.js" />
+      <item itemvalue="npm.dev" />
       <item itemvalue="npm.data" />
     </list>
     <recent_temporary>
@@ -92,7 +99,7 @@
       <workItem from="1634788812629" duration="3573000" />
       <workItem from="1634824904939" duration="4027000" />
       <workItem from="1635165667344" duration="5348000" />
-      <workItem from="1635181029529" duration="4192000" />
+      <workItem from="1635181029529" duration="10441000" />
     </task>
     <servers />
   </component>
