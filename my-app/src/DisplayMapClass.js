@@ -1,46 +1,30 @@
-import * as React from 'react';
+import React, {useState} from 'react'
+import ReactMapGl from 'react-map-gl'
 
-export class DisplayMapClass extends React.Component {
-  mapRef = React.createRef();
 
-  state = {
-    // The map instance to use during cleanup
-    map: null
-  };
 
-  componentDidMount() {
+// api key here "2gbJYzD9mbRmi7NIvnLBumblv9BmLbZ_IGakIXynUIw"
 
-    const H = window.H;
-    const platform = new H.service.Platform({
-        apikey: "2gbJYzD9mbRmi7NIvnLBumblv9BmLbZ_IGakIXynUIw"
-    });
-
-    const defaultLayers = platform.createDefaultLayers();
-
-    // Create an instance of the map
-    const map = new H.Map(
-      this.mapRef.current,
-      defaultLayers.vector.normal.map,
-      {
-        // This map is centered over Europe
-        center: { lat: 50, lng: 5 },
-        zoom: 4,
-        pixelRatio: window.devicePixelRatio || 1
-      }
-    );
- 
-    this.setState({ map });
-  }
-
-  componentWillUnmount() {
-    // Cleanup after the map to avoid memory leaks when this component exits the page
-    this.state.map.dispose();
-  }
-
-  render() {
-    return (
-      // Set a height on the map so it will display
-      <div ref={this.mapRef} style={{ height: "500px" }} />
-    );
-  }
+export const DisplayMapClass = () => {
+    const [viewport, setViewport] = useState ({
+      latitude: 45.4211,
+      longitude: -75.7903,
+      width: window.innerWidth,
+      heigth: window.innerHeight,
+      zoom: 10,
+      bearing:0,
+      pitch:0,
+      mapboxApiAccessToken:'pk.eyJ1Ijoicm9jaW92YWxlbnRpbiIsImEiOiJja3Y3a3FmOGk5bDA5MnFuemFkYW04ZTFhIn0.l4fpHj8g8-aLdR2df0YemA'
+    }) 
+    return <div> 
+      <ReactMapGl
+      //mapStyle="mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4"
+      //mapStyle="mapbox://styles/mapbox/dark-v9"
+      {...viewport}  
+      onViewportChange={newView => {
+          setViewport(newView);
+        }}
+      >
+      </ReactMapGl> 
+      </div>
 }
