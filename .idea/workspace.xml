@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="17f07fd1-6f3a-47dc-9a31-763f4d4e9afa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +55,7 @@
       <recent name="C:\Users\HP\Desktop\apps\REG003-fleet-management" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.start (1)">
     <configuration name="script.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="data/script.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -75,13 +79,37 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/app/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/my-app/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.script.js" />
       <item itemvalue="npm.dev" />
       <item itemvalue="npm.data" />
+      <item itemvalue="npm.start" />
+      <item itemvalue="npm.start (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start (1)" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.data" />
       </list>
     </recent_temporary>
@@ -100,7 +128,10 @@
       <workItem from="1635165667344" duration="5348000" />
       <workItem from="1635181029529" duration="11029000" />
       <workItem from="1635213732818" duration="2992000" />
-      <workItem from="1635253585002" duration="1207000" />
+      <workItem from="1635253585002" duration="5620000" />
+      <workItem from="1635344510602" duration="21505000" />
+      <workItem from="1635432481523" duration="9344000" />
+      <workItem from="1635457217493" duration="24398000" />
     </task>
     <servers />
   </component>

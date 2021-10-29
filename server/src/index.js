@@ -1,7 +1,8 @@
+require('dotenv').config()
 const { ApolloServer, gql } = require('apollo-server');
-
 const Prisma = require('@prisma/client')
 const prisma = new Prisma.PrismaClient();
+
 
 const typeDefs = gql`
 scalar ISODate 
@@ -40,6 +41,9 @@ const resolvers = {
                 where: {
                     id: taxi.id,
                     created_at: { gte: new Date(args.date), lt: new Date(args.dateT) }
+                },
+                include: {
+                    taxi: true,
                 }
             })
 

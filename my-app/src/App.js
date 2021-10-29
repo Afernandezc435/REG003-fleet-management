@@ -52,19 +52,51 @@ const Marker = ({ onClick, children, feature }) => {
 
 function App() {
   const [data, setData] = useState([])
+  const [placa, setPlaca] = useState('PAOF-6727')
+  const [fecha, setFecha] = useState('2008-02-05')
 
-  useEffect(()=> {
+  const [fechaInicialInput, setFechaInicialInput] = useState('2008-02-05')
+  const [fechaFinalInput, setFechaFinalInput] = useState('2008-02-06')
+
+  const [placaInput, setPlacaInput] = useState('')
+
+  useEffect(() => {
+    setFechaFinalInput(tansformToFechaFinal(fechaInicialInput))
+
+  }, [fechaInicialInput])
+
+  useEffect(() => {
+console.log(fechaInicialInput);
+console.log(fechaFinalInput);
+
+  }, [fechaFinalInput])
+
+ const tansformToFechaFinal = (fechaInicial) => {
+
+   const f1 = new Date();
+   f1.setTime(Date.parse(fechaInicial))
+
+   const fechaDos = new Date();
+   fechaDos.setDate(f1.getDate() + 1);
+   const fechaFinal = fechaDos.toISOString().split('T')[0];
+
+   return fechaFinal;
+ }
+
+ useEffect(()=> {
 
     const client = new ApolloClient({
       uri: 'http://localhost:4000/graphql',
-      cache: new InMemoryCache()
+      cache: new InMemoryCache({
+        dataIdFromObject: o => (o._id ? `${o.__typename}:${o._id}`: null),
+      })
     });
 
     client
         .query({
           query: gql`
       query{
-          car (placa:"PAOF-6727", date:"2008-02-05", dateT:"2008-02-06") {
+          car (placa:"${placa}", date:"${fecha}", dateT:"${fechaFinalInput}") {
             id
             latitude
             created_at
@@ -76,28 +108,56 @@ function App() {
         }
       `
         })
-        .then(result => setData(result));
+        .then(result => {
+          console.log(result)
+           setData(result)
+        });
 
-  }, [])
+  }, [placa, fecha])
 
-  console.log('eeeeeee', (data.data || {}).car)
+
 
   const mapContainerRef = useRef(null);
     // const map = useRef(null);
-    const [lng, setLng] = useState(-70.9);
-    const [lat, setLat] = useState(42.35);
-    const [zoom, setZoom] = useState(9);
+    const [lng, setLng] = useState(116.2689);
+    const [lat, setLat] = useState(39.7997);
+    const [zoom, setZoom] = useState(10);
+
+
+
+/*  useEffect(() => {
+    if (data.data){
+      console.log("longitude", lng)
+      console.log("latitud", lat)
+      setLng(data.data.car[1].longitude typeOf)
+      setLat(data.data.car[1].latitude)
+      console.log("longitude", lng)
+      console.log("latitud", lat)
+    }
+  }, [data])*/
 
      // Initialize map when component mounts
   useEffect(() => {
+
+    if (data.data){
+      setLng(data.data.car[0].latitude)
+      setLat(data.data.car[0].longitude)
+    }
+
+    console.log(lng, lat)
+
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
       zoom: zoom,
     });
+
+
     // Render custom marker components
       ((data.data || {}).car || []).forEach((feature) => {
+
+
         // Create a React ref
         const ref = React.createRef();
         // Create a new DOM node and save it to the React ref
@@ -107,11 +167,15 @@ function App() {
           type: "Feature",
           properties: {
             title: feature.id,
-            description: feature.taxi.placa
+            description: feature.taxi.placa,
+            iconSize: [30, 30]
+
           },
+
+
           geometry: {
-            coordinates: [feature.latitude, feature.longitude],
-            type: "Point"
+          type: "Point",
+            coordinates: [feature.latitude, feature.longitude]
           }
         }
         ReactDOM.render(
@@ -135,17 +199,29 @@ function App() {
 
     // Clean up on unmount
     return () => map.remove();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const markerClicked = (title) => {
     window.alert(title);
+  };
+  const changeData = (evt) => {
+    evt.preventDefault()
+    console.log(placaInput)
+    setPlaca(placaInput)
+    setFecha(fechaInicialInput)
+    console.log(placa)
   };
 
 
       return (
         <div>
       <div className="sidebarStyle">
-      <input type='text' />
+        <form onSubmit={changeData}> <label for="">PLACA: </label>
+      <input type='text' id="textoPlaca" onChange={e => setPlacaInput(e.target.value)}  />
+         <label htmlFor=""> FECHA: </label>
+            <input type='date' id="fechaIni" onChange={e => setFechaInicialInput(e.target.value)}  />
+      <input type='submit' value="Enviar" />
+        </form>
         <div>
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
