@@ -17,11 +17,11 @@ type Trajectories {
     latitude: Float
     longitude: Float
     taxi: Car!
-    
 }
+
 type Query {
     car(placa: String, date: String, dateT: String ): [Trajectories]
-    taxis(placa: String, date: String, dateT: String ): [Car]
+    taxis: [Car]
     recents(placa: String, date: String, dateT: String ): [Trajectories]
 }
 `;
@@ -74,11 +74,21 @@ const resolvers = {
             return trajectories;
         },
         async taxis (parent, args, ctx) {
+
             const taxis = await prisma.taxis.findMany({
-                orderBy: [{
-                    placa: 'asc'
-                }]
+                select: {
+                    id: true,
+                    placa: true,
+                    trajectories: {
+                        orderBy: {
+                            created_at: 'desc',
+                        },
+                        take: 5
+                    },
+                },
+                take: 100
             })
+
             return taxis;
         },
     }
