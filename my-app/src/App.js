@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-// import { DisplayMapClass } from './DisplayMapClass'
 
 import ReactDOM from 'react-dom';
 import './App.css';
@@ -10,29 +9,6 @@ import {
   InMemoryCache,
   gql
 } from "@apollo/client";
-
-/*const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-  cache: new InMemoryCache()
-});
-
-client
-.query({
-  query: gql`
-  query{
-      car (placa:"PAOF-6727", date:"2008-02-05", dateT:"2008-02-06") {
-        id,
-        latitude
-        created_at
-        longitude
-      ,
-      }
-
-    }
-  `
-})
-.then(result => console.log(result));
-*/
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9jaW92YWxlbnRpbiIsImEiOiJja3Y3a3FmOGk5bDA5MnFuemFkYW04ZTFhIn0.l4fpHj8g8-aLdR2df0YemA';
 
@@ -115,43 +91,27 @@ console.log(fechaFinalInput);
 
   }, [placa, fecha])
 
-
-
   const mapContainerRef = useRef(null);
     // const map = useRef(null);
     const [lng, setLng] = useState(116.2689);
     const [lat, setLat] = useState(39.7997);
     const [zoom, setZoom] = useState(10);
 
-
-
-/*  useEffect(() => {
-    if (data.data){
-      console.log("longitude", lng)
-      console.log("latitud", lat)
-      setLng(data.data.car[1].longitude typeOf)
-      setLat(data.data.car[1].latitude)
-      console.log("longitude", lng)
-      console.log("latitud", lat)
-    }
-  }, [data])*/
-
      // Initialize map when component mounts
-  useEffect(() => {
+      useEffect(() => {
 
-    if (data.data){
-      setLng(data.data.car[0].latitude)
-      setLat(data.data.car[0].longitude)
-    }
+        if (data.data){
+          setLng(data.data.car[0].latitude)
+          setLat(data.data.car[0].longitude)
+        }
+        console.log(lng, lat)
 
-    console.log(lng, lat)
-
-    const map = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [lng, lat],
-      zoom: zoom,
-    });
+        const map = new mapboxgl.Map({
+          container: mapContainerRef.current,
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: [lng, lat],
+          zoom: zoom,
+        });
 
 
     // Render custom marker components
@@ -169,10 +129,7 @@ console.log(fechaFinalInput);
             title: feature.id,
             description: feature.taxi.placa,
             iconSize: [30, 30]
-
           },
-
-
           geometry: {
           type: "Point",
             coordinates: [feature.latitude, feature.longitude]
@@ -230,4 +187,5 @@ console.log(fechaFinalInput);
     </div>
       );
 }
+
 export default App;

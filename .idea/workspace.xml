@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="17f07fd1-6f3a-47dc-9a31-763f4d4e9afa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/DisplayMapClass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/data/script.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/my-app/src/ubications.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1zm3EQbHZZdoCLx7y09EgIitM4J" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -98,6 +104,7 @@
     <list>
       <item itemvalue="Node.js.script.js" />
       <item itemvalue="npm.dev" />
+      <item itemvalue="npm.start" />
       <item itemvalue="npm.data" />
       <item itemvalue="npm.server" />
     </list>
@@ -127,6 +134,7 @@
       <workItem from="1635344510602" duration="21505000" />
       <workItem from="1635432481523" duration="9344000" />
       <workItem from="1635457217493" duration="24398000" />
+      <workItem from="1635782273203" duration="13099000" />
     </task>
     <servers />
   </component>
